@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const PORT = process.env.PORT;
 const app = express();
+const videoGameRoutes = require("./Routes/videoGameRoutes");
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -35,10 +36,9 @@ if (app.get("env") === "development") {
 }
 
 //+ register routes
+app.use("/api/v1/games", videoGameRoutes);
 app.get("/", (req, res) => {
-  res
-    .status(200)
-    .json({ message: "Welcome to a simple todo application!, enjoy 😀" });
+  res.status(200).json({ message: "Video game API" });
 });
 
 //^ catch all routes
