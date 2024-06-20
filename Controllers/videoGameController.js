@@ -53,7 +53,7 @@ const deleteGame = async () => {
   }
 };
 //deleteGame();
-
+//todo basic querystring filtering and pagination
 const getGames = async (req, res) => {
   try {
     const { name, publisher, developer, genre, tags } = req.query;
